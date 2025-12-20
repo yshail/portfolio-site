@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Globe, Github, ArrowUpRight } from 'lucide-react';
 
 export default function Projects() {
+    const [scale, setScale] = useState(0.5);
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        const updateScale = () => {
+            if (containerRef.current) {
+                const width = containerRef.current.offsetWidth;
+                setScale(width / 1440);
+            }
+        };
+
+        updateScale();
+        window.addEventListener('resize', updateScale);
+        return () => window.removeEventListener('resize', updateScale);
+    }, []);
+
+    const handleMouseEnter = () => {
+        document.body.style.overflow = 'hidden';
+    };
+
+    const handleMouseLeave = () => {
+        document.body.style.overflow = 'auto';
+    };
     const projects = [
         {
             id: "01",
@@ -31,12 +54,15 @@ export default function Projects() {
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: index * 0.2 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            whileHover={{ y: -10 }}
+                            transition={{ duration: 0.8, delay: index * 0.1 }}
                             className="aesthetic-project-card group"
                         >
-                            <div className="project-number">{project.id}</div>
+                            <div className="aesthetic-card-number">{project.id}</div>
+
+                            <div className="card-ambient-glow"></div>
 
                             <div className="project-details">
                                 <h3 className="project-title-large">{project.title}</h3>
@@ -74,13 +100,54 @@ export default function Projects() {
                                 </div>
                             </div>
 
-                            <div className="project-visual-box">
-                                <div className="neon-glow"></div>
-                                <div className="relative z-10 flex flex-col items-center">
-                                    <ArrowUpRight size={80} className="text-white/10 group-hover:text-white/30 transition-all duration-700 group-hover:scale-125" />
-                                    <span className="mt-4 font-mono text-xs text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">INTERACT TO VIEW</span>
+                            <motion.div
+                                className="project-visual-box-wrapper"
+                                whileHover={{ scale: 1.02 }}
+                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            >
+                                <div
+                                    className="project-visual-box"
+                                    ref={containerRef}
+                                    onMouseEnter={handleMouseEnter}
+                                    onMouseLeave={handleMouseLeave}
+                                >
+                                    <div className="live-preview-container">
+                                        {/* Browser Window UI Decorations */}
+                                        <div className="browser-header">
+                                            <div className="browser-dots">
+                                                <div className="dot red"></div>
+                                                <div className="dot yellow"></div>
+                                                <div className="dot green"></div>
+                                            </div>
+                                            <div className="browser-address">
+                                                {project.link.replace('https://', '')}
+                                            </div>
+                                        </div>
+
+                                        <div className="iframe-scaler" style={{
+                                            transform: `scale(${scale})`,
+                                            width: '1440px',
+                                            height: '900px',
+                                            overflow: 'hidden'
+                                        }}>
+                                            <iframe
+                                                src={project.link}
+                                                className="live-iframe"
+                                                title={project.title}
+                                                loading="lazy"
+                                                style={{ width: '1460px', height: '100%', border: 'none' }}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="neon-glow"></div>
+
+                                    <div className="project-visual-content">
+                                        <ArrowUpRight size={80} className="visual-arrow" />
+                                        <span className="visual-hint">INTERACT TO VIEW</span>
+                                    </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         </motion.div>
                     ))}
                 </div>
