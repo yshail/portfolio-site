@@ -26,7 +26,7 @@ export default function Contact() {
                             href="mailto:id.shaileshyadav@gmail.com"
                             className="footer-email-link"
                         >
-                            id.shaileshyadav@gmail.com
+                            contact@shaileshyadav.in
                             <ArrowRight size={32} style={{ marginLeft: '1rem' }} />
                         </a>
                     </div>
