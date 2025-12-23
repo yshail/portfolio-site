@@ -45,7 +45,7 @@ h4 {
 }
 
 .subtitle {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #888899;
@@ -110,9 +110,9 @@ h4 {
 
 .typewriter-container {
   font-family: 'JetBrains Mono', 'Courier New', monospace;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #00ff88;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -120,9 +120,9 @@ h4 {
 .aesthetic-title {
   display: flex;
   flex-direction: column;
-  line-height: 0.85;
-  margin-bottom: 3rem;
-  font-size: clamp(4rem, 15vw, 10rem);
+  line-height: 0.9;
+  margin-bottom: 2rem;
+  font-size: clamp(3rem, 10vw, 6.5rem);
   font-weight: 900;
   letter-spacing: -0.05em;
   text-transform: uppercase;
@@ -221,7 +221,7 @@ h4 {
 }
 
 .contact-trigger-label {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: #666;
@@ -265,14 +265,14 @@ h4 {
 }
 
 .info-label {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   color: #666;
   letter-spacing: 0.05em;
 }
 
 .info-value {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #fff;
   font-weight: 500;
 }
@@ -280,13 +280,13 @@ h4 {
 /* --- Section 2: "What's in it for you" style --- */
 .section-dark {
   background: #030305;
-  padding: 8rem 0;
+  padding: 5rem 0;
   position: relative;
 }
 
 .center-header {
   text-align: center;
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
 }
 
 .small-icon {
@@ -323,7 +323,7 @@ h4 {
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   /* Reference has softer corners */
-  padding: 2.5rem 2rem;
+  padding: 2rem 1.5rem;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease, border-color 0.3s ease;
@@ -346,7 +346,7 @@ h4 {
 
 .card-content p {
   color: #888;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
@@ -359,7 +359,7 @@ h4 {
 
 /* --- Project Showcase (Specific Clean Style) --- */
 .project-showcase {
-  margin-top: 8rem;
+  margin-top: 4rem;
   padding: 0 2rem;
 }
 
@@ -670,7 +670,7 @@ h4 {
 .footer-wrapper {
   background: #030305;
   color: #fff;
-  padding: 8rem 2rem 3rem;
+  padding: 5rem 2rem 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   position: relative;
   overflow: hidden;
