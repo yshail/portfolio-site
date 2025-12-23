@@ -71,6 +71,8 @@ h4 {
   background: #030305;
   --mouse-x: 50%;
   --mouse-y: 50%;
+  align-items: center;
+  /* Enforce vertical axis centering for column flex */
 }
 
 .spotlight-bg {
@@ -106,6 +108,12 @@ h4 {
   z-index: 10;
   text-align: center;
   padding-top: 10vh;
+  width: 100%;
+  /* Ensure full width for centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Force center children */
 }
 
 .typewriter-container {
@@ -120,7 +128,9 @@ h4 {
 .aesthetic-title {
   display: flex;
   flex-direction: column;
-  line-height: 0.9;
+  align-items: center;
+  /* Center the text spans */
+  line-height: 1.1;
   margin-bottom: 2rem;
   font-size: clamp(3rem, 10vw, 6.5rem);
   font-weight: 900;
@@ -143,6 +153,10 @@ h4 {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  padding-right: 0.2em;
+  /* Prevent cropping of last letter */
+  padding-bottom: 0.1em;
+  /* Prevent vertical clipping */
 }
 
 .hero-contact-trigger {
@@ -939,4 +953,66 @@ h4 {
 
 .mt-auto {
   margin-top: auto;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .hero-content {
+    padding-top: 5vh;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .aesthetic-title {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-btn-group {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 1rem;
+  }
+
+  .hero-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .typewriter-container {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .info-bar {
+    position: relative;
+    /* Unlock from absolute bottom on mobile if content is tall */
+    margin-top: 4rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .info-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .info-item:nth-child(even) {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Chat Trigger Mobile Override */
+  .chat-trigger-section {
+    width: 100%;
+    padding: 0 1rem;
+  }
 }

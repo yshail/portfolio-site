@@ -23,7 +23,7 @@
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     width: fit-content;
-    min-width: 400px;
+    min-width: min(400px, 90vw);
     z-index: 100;
     pointer-events: auto;
 }
