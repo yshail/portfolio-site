@@ -1,0 +1,314 @@
+/* --- ChatBot Aesthetic Styles --- */
+.chat-trigger-section {
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto 0;
+    z-index: 500;
+    /* Higher than spotlight */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+.search-bar-aesthetic {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.75rem 1.5rem;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    width: fit-content;
+    min-width: 400px;
+    z-index: 100;
+    pointer-events: auto;
+}
+
+.search-bar-aesthetic:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
+}
+
+.search-input-dummy {
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    width: 100%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    pointer-events: auto;
+    /* Enable typing */
+}
+
+.search-key-hint {
+    font-size: 0.6rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 700;
+}
+
+/* --- Inline Chat Mode (Title Replacement) --- */
+.chat-integration-area {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+    position: relative;
+    z-index: 501;
+    /* Higher than spotlight and hero-content */
+}
+
+.chat-interface.inline-mode {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 2rem;
+}
+
+.chatbot-messages-inline {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    scrollbar-width: none;
+    max-height: 350px;
+}
+
+.chatbot-messages-inline::-webkit-scrollbar {
+    display: none;
+}
+
+.inline-message {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    display: flex;
+    gap: 1rem;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.msg-prefix {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.75rem;
+    margin-top: 0.4rem;
+}
+
+.inline-message.user .msg-prefix {
+    color: rgba(59, 130, 246, 0.4);
+}
+
+.inline-message.bot .msg-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+}
+
+.inline-message.user .msg-text {
+    color: #fff;
+    font-weight: 500;
+}
+
+.typing-dots {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: rgba(59, 130, 246, 0.6);
+    font-style: italic;
+}
+
+/* --- Inline Controls --- */
+.chatbot-controls-inline {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1.5rem;
+}
+
+.suggestion-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.suggestion-pill-inline {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.5);
+    padding: 0.5rem 1rem;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.suggestion-pill-inline:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.inline-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    border-radius: 99px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 999;
+    pointer-events: auto;
+}
+
+.inline-chat-input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.inline-chat-input:focus {
+    color: #fff;
+}
+
+.input-actions-inline {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.inline-send-icon,
+.inline-close-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.inline-send-icon {
+    background: #3b82f6;
+    color: #fff;
+}
+
+.inline-close-icon {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.inline-send-icon:hover {
+    transform: scale(1.1);
+    background: #2563eb;
+}
+
+.inline-close-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* --- API KEY PROMPT --- */
+.api-key-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 3rem;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.key-icon-ring {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+}
+
+.api-key-prompt h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.api-key-prompt p {
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 2.5rem;
+    font-size: 0.9rem;
+}
+
+.input-group-key {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.key-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    color: #fff;
+    text-align: center;
+    font-family: monospace;
+}
+
+.save-key-btn {
+    background: #3b82f6;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-weight: 600;
+}
+
+.cancel-key-btn {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+}
+
+.get-key-link {
+    margin-top: 2rem;
+    color: rgba(59, 130, 246, 0.8);
+    font-size: 0.8rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
