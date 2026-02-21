@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { LazyMotion, domAnimation } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 
 const Hero = lazy(() => import('./components/Hero'));
 const About = lazy(() => import('./components/About'));
@@ -17,6 +18,7 @@ function App() {
           <Contact />
         </Suspense>
       </LazyMotion>
+      <Analytics />
     </div>
   );
 }
