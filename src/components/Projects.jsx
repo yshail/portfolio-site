@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { m } from 'framer-motion';
 import { Globe, ArrowUpRight } from 'lucide-react';
-import { FaNodeJs, FaDocker, FaReact, FaRobot, FaGithub } from 'react-icons/fa';
-import { SiExpress, SiMongodb, SiRailway, SiRender } from 'react-icons/si';
+import { FaNodeJs, FaDocker, FaReact, FaRobot, FaGithub, FaServer, FaSync, FaSpider } from 'react-icons/fa';
+import { SiExpress, SiMongodb, SiRailway, SiRender, SiJavascript, SiVercel } from 'react-icons/si';
 import { BiLogoTypescript } from 'react-icons/bi';
 
 export default function Projects() {
@@ -58,6 +58,21 @@ export default function Projects() {
             link: "https://landbnb.shaileshyadav.in",
             github: "https://github.com/yshail",
             hostIcon: <SiRender size={20} />
+        },
+        {
+            id: "03",
+            title: "YouTube Stream Scraper",
+            desc: "A real-time data extraction tool using Server Sent Events, Async Generators, and Cheerio for robust YouTube scraping.",
+            tags: [
+                { name: "Server Sent Events", icon: <FaServer className="text-blue-400" /> },
+                { name: "Advanced JS", icon: <SiJavascript className="text-yellow-400" /> },
+                { name: "Async Generators", icon: <FaSync className="text-green-400" /> },
+                { name: "Cheerio", icon: <FaSpider className="text-orange-500" /> }
+            ],
+            link: "https://youtube-stream-scraper-b2lhe23dq-ids-projects-4c7ad7bd.vercel.app/",
+            github: "https://github.com/yshail/youtube-stream-scraper",
+            hostIcon: <SiVercel size={20} />,
+            image: "/yt-scraper.png"
         }
     ];
 
@@ -157,13 +172,22 @@ export default function Projects() {
                                             height: '900px',
                                             overflow: 'hidden'
                                         }}>
-                                            <iframe
-                                                src={project.link}
-                                                className="live-iframe"
-                                                title={project.title}
-                                                loading="lazy"
-                                                style={{ width: '1460px', height: '100%', border: 'none' }}
-                                            />
+                                            {project.image ? (
+                                                <img 
+                                                    src={project.image} 
+                                                    alt={project.title} 
+                                                    className="live-iframe" 
+                                                    style={{ width: '1460px', height: '100%', objectFit: 'cover', border: 'none' }}
+                                                />
+                                            ) : (
+                                                <iframe
+                                                    src={project.link}
+                                                    className="live-iframe"
+                                                    title={project.title}
+                                                    loading="lazy"
+                                                    style={{ width: '1460px', height: '100%', border: 'none' }}
+                                                />
+                                            )}
                                         </div>
                                     </div>
 

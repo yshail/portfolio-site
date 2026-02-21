@@ -1,7 +1,7 @@
 import React from 'react';
 import { m } from 'framer-motion';
-import { FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaGithub, FaDocker, FaLinux, FaRobot } from 'react-icons/fa';
-import { SiExpress, SiMongodb, SiNextdotjs, SiTailwindcss, SiJsonwebtokens, SiVercel, SiRedis } from 'react-icons/si';
+import { FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaGithub, FaDocker, FaLinux, FaRobot, FaSpider } from 'react-icons/fa';
+import { SiExpress, SiMongodb, SiNextdotjs, SiTailwindcss, SiJsonwebtokens, SiVercel, SiRedis, SiJavascript } from 'react-icons/si';
 import { MdFunctions } from 'react-icons/md';
 import { BiLogoTypescript } from 'react-icons/bi';
 import { TbApi, TbBrain } from 'react-icons/tb';
@@ -29,7 +29,9 @@ export default function About() {
         { name: "Deployment", icon: <SiVercel className="text-white" size={18} />, highlight: false },
         { name: "Redis", icon: <SiRedis className="text-red-500" size={18} />, highlight: false },
         { name: "AI APIs", icon: <TbBrain className="text-purple-400" size={18} />, highlight: true },
-        { name: "Playwright", icon: <FaRobot className="text-green-400" size={18} />, highlight: false }
+        { name: "Playwright", icon: <FaRobot className="text-green-400" size={18} />, highlight: false },
+        { name: "Advanced JS", icon: <SiJavascript className="text-yellow-400" size={18} />, highlight: true },
+        { name: "Cheerio", icon: <FaSpider className="text-orange-500" size={18} />, highlight: false }
     ];
 
     return (
