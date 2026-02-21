@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Globe, ArrowUpRight } from 'lucide-react';
 import { FaNodeJs, FaDocker, FaReact, FaRobot, FaGithub } from 'react-icons/fa';
 import { SiExpress, SiMongodb, SiRailway, SiRender } from 'react-icons/si';
@@ -64,7 +64,7 @@ export default function Projects() {
     return (
         <section className="section-dark projects-showcase-ref" style={{ paddingTop: '10vh', paddingBottom: '10vh' }}>
             <div className="container">
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
@@ -72,11 +72,11 @@ export default function Projects() {
                 >
                     <span className="social-label">SELECTED WORKS</span>
                     <h2 className="section-h2" style={{ fontSize: 'clamp(3rem, 10vw, 8rem)', fontWeight: 800 }}>PROJECTS</h2>
-                </motion.div>
+                </m.div>
 
                 <div className="flex flex-col gap-10">
                     {projects.map((project, index) => (
-                        <motion.div
+                        <m.div
                             key={index}
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -127,7 +127,7 @@ export default function Projects() {
                                 </div>
                             </div>
 
-                            <motion.div
+                            <m.div
                                 className="project-visual-box-wrapper"
                                 whileHover={{ scale: 1.02 }}
                                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -174,8 +174,8 @@ export default function Projects() {
                                         <span className="visual-hint">INTERACT TO VIEW</span>
                                     </div>
                                 </div>
-                            </motion.div>
-                        </motion.div>
+                            </m.div>
+                        </m.div>
                     ))}
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { Send, X, Sparkles, Key, AlertCircle } from 'lucide-react';
 import './ChatBot.css';
 
@@ -81,7 +81,7 @@ export default function ChatBot({ isOpen, onClose, isInline = false }) {
         <div className={`chat-interface ${isInline ? 'inline-mode' : ''}`}>
             <div className="chatbot-messages-inline" ref={scrollRef}>
                 {messages.map((msg, idx) => (
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         key={idx}
@@ -89,7 +89,7 @@ export default function ChatBot({ isOpen, onClose, isInline = false }) {
                     >
                         <span className="msg-prefix">{msg.role === 'bot' ? 'AI: ' : 'YOU: '}</span>
                         <div className="msg-text">{msg.text}</div>
-                    </motion.div>
+                    </m.div>
                 ))}
                 {isTyping && (
                     <div className="inline-message bot typing-dots">

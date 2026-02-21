@@ -10,6 +10,13 @@ export default defineConfig({
     cssCodeSplit: true,
     rollupOptions: {
       maxParallelFileOps: 1,
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom"],
+          "vendor-utils": ["framer-motion", "lucide-react"],
+        },
+      },
     },
+    chunkSizeWarningLimit: 1000,
   },
 });

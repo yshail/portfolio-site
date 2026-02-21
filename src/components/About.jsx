@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaGithub, FaDocker, FaLinux, FaRobot } from 'react-icons/fa';
 import { SiExpress, SiMongodb, SiNextdotjs, SiTailwindcss, SiJsonwebtokens, SiVercel, SiRedis } from 'react-icons/si';
 import { MdFunctions } from 'react-icons/md';
@@ -37,7 +37,7 @@ export default function About() {
             <div className="container">
 
                 <div className="center-header">
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, scale: 0 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         className="flex justify-center mb-4"
@@ -45,29 +45,29 @@ export default function About() {
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
                             <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                         </svg>
-                    </motion.div>
+                    </m.div>
 
-                    <motion.h2
+                    <m.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         className="section-h2"
                     >
                         What I bring to the table
-                    </motion.h2>
+                    </m.h2>
 
-                    <motion.p
+                    <m.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: 0.2 }}
                         className="sub-text"
                     >
                         I am a computer science student with a passion for building clean, efficient, and scalable web solutions.
-                    </motion.p>
+                    </m.p>
                 </div>
 
                 <div className="skills-gallery">
                     {skills.map((skill, index) => (
-                        <motion.div
+                        <m.div
                             key={index}
                             initial={{ opacity: 0, scale: 0.9, y: 20 }}
                             whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -77,7 +77,7 @@ export default function About() {
                         >
                             {skill.icon}
                             <span>{skill.name}</span>
-                        </motion.div>
+                        </m.div>
                     ))}
                 </div>
 
