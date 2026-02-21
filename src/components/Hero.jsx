@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
 import { ArrowDown, FileText, Layers, Sparkles } from 'lucide-react';
 import { useTypewriter } from '../hooks/useTypewriter';
+import './ChatBot.css';
 
 const ChatBot = React.lazy(() => import('./ChatBot'));
 
@@ -80,12 +81,12 @@ export default function Hero() {
                                         rel="noreferrer" 
                                         className="hero-btn primary"
                                     >
-                                        <FileText size={18} style={{ marginRight: '8px', display: 'inline', verticalAlign: 'middle' }} />
-                                        Resume
+                                        <FileText size={18} style={{ marginRight: '10px', display: 'inline', verticalAlign: 'middle' }} />
+                                        RESUME
                                     </a>
                                     <button onClick={scrollToProjects} className="hero-btn">
-                                        <Layers size={18} style={{ marginRight: '8px', display: 'inline', verticalAlign: 'middle' }} />
-                                        Projects
+                                        <Layers size={18} style={{ marginRight: '10px', display: 'inline', verticalAlign: 'middle' }} />
+                                        PROJECTS
                                     </button>
                                 </m.div>
                             </m.div>
@@ -112,7 +113,7 @@ export default function Hero() {
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                             >
-                                <Sparkles size={16} className="text-blue-400" />
+                                <Sparkles size={16} className="search-icon-sparkle" />
                                 <input
                                     placeholder="Ask AI anything about Shailesh..."
                                     className="search-input-dummy"

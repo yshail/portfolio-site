@@ -223,37 +223,42 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.25rem;
 }
 
 .contact-trigger-circle {
-  width: 2rem;
-  height: 2rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(4px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .contact-trigger-btn:hover .contact-trigger-circle {
-  border-color: #fff;
-  transform: translateY(3px);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(4px);
+  color: #fff;
 }
 
 .contact-trigger-label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: #666;
-  transition: color 0.3s ease;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 500;
+  transition: all 0.4s ease;
 }
 
 .contact-trigger-btn:hover .contact-trigger-label {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.3em;
 }
 
 /* --- Info Bar (Reference: Bottom bar in hero) --- */
