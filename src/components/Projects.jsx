@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Globe, Github, ArrowUpRight } from 'lucide-react';
+import { Globe, ArrowUpRight } from 'lucide-react';
+import { FaNodeJs, FaDocker, FaReact, FaRobot, FaGithub } from 'react-icons/fa';
+import { SiExpress, SiMongodb, SiRailway, SiRender } from 'react-icons/si';
+import { BiLogoTypescript } from 'react-icons/bi';
 
 export default function Projects() {
     const [scale, setScale] = useState(0.5);
@@ -29,11 +32,32 @@ export default function Projects() {
     const projects = [
         {
             id: "01",
+            title: "LinkedIn Persona",
+            desc: "An intelligent scraper and personality analysis tool for LinkedIn profiles. Features automated login handling, session management, and deep profile insights.",
+            tags: [
+                { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+                { name: "Playwright", icon: <FaRobot className="text-green-400" /> },
+                { name: "TypeScript", icon: <BiLogoTypescript className="text-blue-500" /> },
+                { name: "Express", icon: <SiExpress className="text-gray-300" /> },
+                { name: "Docker", icon: <FaDocker className="text-blue-500" /> }
+            ],
+            link: "https://passionate-appreciation-production-2e7d.up.railway.app/",
+            github: "https://github.com/yshail/LinkedIn-Persona",
+            hostIcon: <SiRailway size={20} />
+        },
+        {
+            id: "02",
             title: "Landbnb",
             desc: "A futuristic real estate ecosystem built for the next generation of digital nomads. Experience seamless property management with high-end architecture.",
-            tags: ["MONGODB", "EXPRESS", "REACT", "NODE.JS"],
+            tags: [
+                { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
+                { name: "Express", icon: <SiExpress className="text-gray-300" /> },
+                { name: "React", icon: <FaReact className="text-blue-400" /> },
+                { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> }
+            ],
             link: "https://landbnb.shaileshyadav.in",
-            github: "https://github.com/yshail"
+            github: "https://github.com/yshail",
+            hostIcon: <SiRender size={20} />
         }
     ];
 
@@ -50,7 +74,7 @@ export default function Projects() {
                     <h2 className="section-h2" style={{ fontSize: 'clamp(3rem, 10vw, 8rem)', fontWeight: 800 }}>PROJECTS</h2>
                 </motion.div>
 
-                <div className="flex flex-col gap-20">
+                <div className="flex flex-col gap-10">
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
@@ -71,31 +95,34 @@ export default function Projects() {
                                 </p>
 
                                 <div className="tag-list">
-                                    {project.tags.map(tag => (
-                                        <span key={tag} className="aesthetic-tag">{tag}</span>
+                                    {project.tags.map((tag, idx) => (
+                                        <span key={idx} className="aesthetic-tag flex items-center gap-2">
+                                            {tag.icon}
+                                            {tag.name}
+                                        </span>
                                     ))}
                                 </div>
 
-                                <div className="flex gap-8 mt-12">
+                                <div className="flex gap-6 mt-12">
                                     <a
                                         href={project.link}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="hero-btn primary"
-                                        style={{ padding: '0.75rem 2rem' }}
+                                        className="hero-btn primary flex items-center justify-center gap-4 uppercase tracking-widest text-sm"
+                                        style={{ padding: '0.75rem 2.25rem' }}
                                     >
-                                        <Globe size={18} className="mr-2 inline" />
-                                        Live Demo
+                                        {project.hostIcon}
+                                        LIVE DEMO
                                     </a>
                                     <a
                                         href={project.github}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="hero-btn"
-                                        style={{ padding: '0.75rem 2rem' }}
+                                        className="hero-btn flex items-center justify-center gap-4 uppercase tracking-widest text-sm"
+                                        style={{ padding: '0.75rem 2.25rem' }}
                                     >
-                                        <Github size={18} className="mr-2 inline" />
-                                        Source
+                                        <FaGithub size={20} />
+                                        SOURCE
                                     </a>
                                 </div>
                             </div>

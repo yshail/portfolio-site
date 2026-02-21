@@ -80,7 +80,12 @@ export default function Hero() {
                                     transition={{ duration: 0.8, delay: 0.4 }}
                                     className="hero-btn-group"
                                 >
-                                    <a href="#" className="hero-btn primary">
+                                    <a 
+                                        href="https://drive.google.com/file/d/13R74wrZ_EhFxkhJZdWXd2_4Y3-5d1K1A/view?usp=sharing" 
+                                        target="_blank" 
+                                        rel="noreferrer" 
+                                        className="hero-btn primary"
+                                    >
                                         <FileText size={18} style={{ marginRight: '8px', display: 'inline', verticalAlign: 'middle' }} />
                                         Resume
                                     </a>
@@ -162,11 +167,11 @@ export default function Hero() {
                         </div>
                         <div className="info-item">
                             <span className="info-label">Experience</span>
-                            <span className="info-value">2+ Years</span>
+                            <span className="info-value">Fresher</span>
                         </div>
                         <div className="info-item">
                             <span className="info-label">Availability</span>
-                            <span className="info-value">Available</span>
+                            <span className="info-value">Immediate Joiner</span>
                         </div>
                     </div>
                 </div>

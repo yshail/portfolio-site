@@ -5,7 +5,7 @@ import './ChatBot.css';
 
 const SUGGESTIONS = [
     "Who is Shailesh?",
-    "Tell me about Landbnb",
+    "Tell me about LinkedIn Persona",
     "What are your skills?",
     "Are you looking for a job?",
 ];
@@ -37,7 +37,7 @@ export default function ChatBot({ isOpen, onClose, isInline = false }) {
                         parts: [{
                             text: `CONTEXT: You are the AI brand ambassador for Shailesh Yadav (Full-Stack Developer). 
                             SKILLS: MERN Stack, Next.js, Framer Motion, GSAP, AWS.
-                            PROJECTS: Landbnb (Real Estate SaaS), and other high-end web apps.
+                            PROJECTS: LinkedIn Persona (AI-powered Scraper), Landbnb (Real Estate SaaS), and other high-end web apps.
                             TONE: Professional, modern, slightly industrial, and helpful.
                             INSTRUCTION: Keep responses concise (under 3 sentences). 
                             USER QUESTION: ${userText}`

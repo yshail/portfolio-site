@@ -1,33 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Lightbulb, Code2, Rocket, BrainCircuit } from 'lucide-react';
-
+import { FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaGithub, FaDocker, FaLinux, FaRobot } from 'react-icons/fa';
+import { SiExpress, SiMongodb, SiNextdotjs, SiTailwindcss, SiJsonwebtokens, SiVercel, SiRedis } from 'react-icons/si';
+import { MdFunctions } from 'react-icons/md';
+import { BiLogoTypescript } from 'react-icons/bi';
+import { TbApi, TbBrain } from 'react-icons/tb';
+import { DiMysql } from 'react-icons/di';
 export default function About() {
-    const cards = [
-        {
-            id: '01',
-            title: 'Full-Stack Development',
-            desc: 'Building robust applications using the MERN stack (MongoDB, Express, React, Node.js).',
-            icon: <Code2 size={24} className="text-white mb-4" />
-        },
-        {
-            id: '02',
-            title: 'Data Structures & Algo',
-            desc: 'Writing efficient, scalable code and solving complex problems with strong DSA fundamentals.',
-            icon: <BrainCircuit size={24} className="text-white mb-4" />
-        },
-        {
-            id: '03',
-            title: 'AI & Machine Learning',
-            desc: 'Exploring the integration of LLMs and AI models into real-world web applications.',
-            icon: <Rocket size={24} className="text-white mb-4" />
-        },
-        {
-            id: '04',
-            title: 'Cloud & DevOps',
-            desc: 'Experience with cloud integrations like MongoDB Atlas and Cloudinary for scalable solutions.',
-            icon: <Lightbulb size={24} className="text-white mb-4" />
-        }
+    const skills = [
+        { name: "Data Structures & Algorithms", icon: <MdFunctions className="text-red-400" size={18} />, highlight: true },
+        { name: "JavaScript", icon: <FaJs className="text-yellow-400" size={18} />, highlight: false },
+        { name: "React.js", icon: <FaReact className="text-blue-400" size={18} />, highlight: false },
+        { name: "Node.js", icon: <FaNodeJs className="text-green-500" size={18} />, highlight: false },
+        { name: "Express.js", icon: <SiExpress className="text-gray-300" size={18} />, highlight: false },
+        { name: "MongoDB", icon: <SiMongodb className="text-green-600" size={18} />, highlight: false },
+        { name: "TypeScript", icon: <BiLogoTypescript className="text-blue-500" size={18} />, highlight: true },
+        { name: "HTML5", icon: <FaHtml5 className="text-orange-500" size={18} />, highlight: false },
+        { name: "CSS3", icon: <FaCss3Alt className="text-blue-500" size={18} />, highlight: false },
+        { name: "Git", icon: <FaGitAlt className="text-orange-600" size={18} />, highlight: false },
+        { name: "GitHub", icon: <FaGithub className="text-white" size={18} />, highlight: false },
+        { name: "SQL", icon: <DiMysql className="text-blue-300" size={18} />, highlight: false },
+        { name: "REST API", icon: <TbApi className="text-blue-200" size={18} />, highlight: false },
+        { name: "Docker", icon: <FaDocker className="text-blue-500" size={18} />, highlight: false },
+        { name: "Linux / Bash", icon: <FaLinux className="text-white" size={18} />, highlight: false },
+        { name: "Next.js", icon: <SiNextdotjs className="text-white" size={18} />, highlight: false },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-400" size={18} />, highlight: false },
+        { name: "JWT Auth", icon: <SiJsonwebtokens className="text-pink-500" size={18} />, highlight: false },
+        { name: "Deployment", icon: <SiVercel className="text-white" size={18} />, highlight: false },
+        { name: "Redis", icon: <SiRedis className="text-red-500" size={18} />, highlight: false },
+        { name: "AI APIs", icon: <TbBrain className="text-purple-400" size={18} />, highlight: true },
+        { name: "Playwright", icon: <FaRobot className="text-green-400" size={18} />, highlight: false }
     ];
 
     return (
@@ -63,21 +65,18 @@ export default function About() {
                     </motion.p>
                 </div>
 
-                <div className="cards-grid">
-                    {cards.map((card, index) => (
+                <div className="skills-gallery">
+                    {skills.map((skill, index) => (
                         <motion.div
-                            key={card.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            className="glass-card"
+                            key={index}
+                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ delay: index * 0.05, type: 'spring', stiffness: 200, damping: 20 }}
+                            className={`aesthetic-skill-pill ${skill.highlight ? 'highlight-pill' : ''}`}
                         >
-                            <div className="card-content">
-                                {card.icon}
-                                <h3>{card.title}</h3>
-                                <p>{card.desc}</p>
-                            </div>
-                            <span className="card-number">{card.id}</span>
+                            {skill.icon}
+                            <span>{skill.name}</span>
                         </motion.div>
                     ))}
                 </div>
