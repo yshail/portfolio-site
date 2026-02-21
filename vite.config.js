@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     target: "esnext",
     sourcemap: false,
-    cssCodeSplit: false,
+    cssCodeSplit: true,
     rollupOptions: {
       maxParallelFileOps: 1,
     },

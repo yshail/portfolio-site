@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowDown, FileText, Layers, Sparkles } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
 
-import ChatBot from './ChatBot';
+const ChatBot = React.lazy(() => import('./ChatBot'));
 
 export default function Hero() {
     const containerRef = useRef(null);
