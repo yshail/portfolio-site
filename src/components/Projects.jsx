@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Globe, ArrowUpRight } from 'lucide-react';
-import { FaNodeJs, FaDocker, FaReact, FaRobot, FaGithub } from 'react-icons/fa';
-import { SiExpress, SiMongodb, SiRailway, SiRender } from 'react-icons/si';
+import { FaNodeJs, FaDocker, FaReact, FaRobot, FaGithub, FaServer, FaSync, FaSpider } from 'react-icons/fa';
+import { SiExpress, SiMongodb, SiRailway, SiRender, SiJavascript, SiVercel } from 'react-icons/si';
 import { BiLogoTypescript } from 'react-icons/bi';
 
 export default function Projects() {
@@ -58,13 +58,28 @@ export default function Projects() {
             link: "https://landbnb.shaileshyadav.in",
             github: "https://github.com/yshail",
             hostIcon: <SiRender size={20} />
+        },
+        {
+            id: "03",
+            title: "YouTube Stream Scraper",
+            desc: "A real-time data extraction tool using Server Sent Events, Async Generators, and Cheerio for robust YouTube scraping.",
+            tags: [
+                { name: "Server Sent Events", icon: <FaServer className="text-blue-400" /> },
+                { name: "Advanced JS", icon: <SiJavascript className="text-yellow-400" /> },
+                { name: "Async Generators", icon: <FaSync className="text-green-400" /> },
+                { name: "Cheerio", icon: <FaSpider className="text-orange-500" /> }
+            ],
+            link: "https://youtube-stream-scraper-b2lhe23dq-ids-projects-4c7ad7bd.vercel.app/",
+            github: "https://github.com/yshail/youtube-stream-scraper",
+            hostIcon: <SiVercel size={20} />,
+            image: "/yt-scraper.png"
         }
     ];
 
     return (
         <section className="section-dark projects-showcase-ref" style={{ paddingTop: '10vh', paddingBottom: '10vh' }}>
             <div className="container">
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
@@ -72,11 +87,11 @@ export default function Projects() {
                 >
                     <span className="social-label">SELECTED WORKS</span>
                     <h2 className="section-h2" style={{ fontSize: 'clamp(3rem, 10vw, 8rem)', fontWeight: 800 }}>PROJECTS</h2>
-                </motion.div>
+                </m.div>
 
                 <div className="flex flex-col gap-10">
                     {projects.map((project, index) => (
-                        <motion.div
+                        <m.div
                             key={index}
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -127,7 +142,7 @@ export default function Projects() {
                                 </div>
                             </div>
 
-                            <motion.div
+                            <m.div
                                 className="project-visual-box-wrapper"
                                 whileHover={{ scale: 1.02 }}
                                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -157,13 +172,22 @@ export default function Projects() {
                                             height: '900px',
                                             overflow: 'hidden'
                                         }}>
-                                            <iframe
-                                                src={project.link}
-                                                className="live-iframe"
-                                                title={project.title}
-                                                loading="lazy"
-                                                style={{ width: '1460px', height: '100%', border: 'none' }}
-                                            />
+                                            {project.image ? (
+                                                <img 
+                                                    src={project.image} 
+                                                    alt={project.title} 
+                                                    className="live-iframe" 
+                                                    style={{ width: '1460px', height: '100%', objectFit: 'cover', border: 'none' }}
+                                                />
+                                            ) : (
+                                                <iframe
+                                                    src={project.link}
+                                                    className="live-iframe"
+                                                    title={project.title}
+                                                    loading="lazy"
+                                                    style={{ width: '1460px', height: '100%', border: 'none' }}
+                                                />
+                                            )}
                                         </div>
                                     </div>
 
@@ -174,8 +198,8 @@ export default function Projects() {
                                         <span className="visual-hint">INTERACT TO VIEW</span>
                                     </div>
                                 </div>
-                            </motion.div>
-                        </motion.div>
+                            </m.div>
+                        </m.div>
                     ))}
                 </div>
             </div>

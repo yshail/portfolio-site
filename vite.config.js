@@ -1,7 +1,22 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-})
+  build: {
+    target: "esnext",
+    sourcemap: false,
+    cssCodeSplit: true,
+    rollupOptions: {
+      maxParallelFileOps: 1,
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom"],
+          "vendor-utils": ["framer-motion", "lucide-react"],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
+  },
+});

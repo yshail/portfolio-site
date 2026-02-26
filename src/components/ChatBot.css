@@ -14,45 +14,70 @@
 .search-bar-aesthetic {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 0.75rem 1.5rem;
-    border-radius: 99px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    width: fit-content;
-    min-width: min(400px, 90vw);
-    z-index: 100;
-    pointer-events: auto;
+    gap: 0.75rem;
+    background: rgba(15, 15, 15, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.6rem 0.8rem 0.6rem 1.25rem;
+    border-radius: 100px;
+    cursor: text;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(20px);
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 
+        0 4px 20px -5px rgba(0, 0, 0, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.05);
 }
 
 .search-bar-aesthetic:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(59, 130, 246, 0.4);
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
+    background: rgba(20, 20, 20, 0.7);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 10px 30px -10px rgba(0, 0, 0, 0.7),
+        inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+.search-icon-sparkle {
+    color: rgba(255, 255, 255, 0.6);
+    flex-shrink: 0;
 }
 
 .search-input-dummy {
-    background: none;
-    border: none;
-    outline: none;
-    color: #fff;
-    width: 100%;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
-    pointer-events: auto;
-    /* Enable typing */
+    background: none !important;
+    border: none !important;
+    outline: none !important;
+    color: #fff !important;
+    flex: 1;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.95rem !important;
+    padding: 0 !important;
+}
+
+.search-input-dummy::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+    font-weight: 300;
 }
 
 .search-key-hint {
-    font-size: 0.6rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
     color: rgba(255, 255, 255, 0.4);
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.search-bar-aesthetic:hover .search-key-hint {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* --- Inline Chat Mode (Title Replacement) --- */

@@ -1,16 +1,24 @@
-import React from 'react';
-import Hero from './components/Hero';
-import About from './components/About';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
+import React, { Suspense, lazy } from 'react';
+import { LazyMotion, domAnimation } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
+
+const Hero = lazy(() => import('./components/Hero'));
+const About = lazy(() => import('./components/About'));
+const Projects = lazy(() => import('./components/Projects'));
+const Contact = lazy(() => import('./components/Contact'));
 
 function App() {
   return (
     <div className="bg-black min-h-screen text-white">
-      <Hero />
-      <About />
-      <Projects />
-      <Contact />
+      <LazyMotion features={domAnimation}>
+        <Suspense fallback={<div className="h-screen bg-black" />}>
+          <Hero />
+          <About />
+          <Projects />
+          <Contact />
+        </Suspense>
+      </LazyMotion>
+      <Analytics />
     </div>
   );
 }

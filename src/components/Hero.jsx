@@ -1,13 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { ArrowDown, FileText, Layers, Sparkles } from 'lucide-react';
-import Typewriter from 'typewriter-effect';
+import { useTypewriter } from '../hooks/useTypewriter';
+import './ChatBot.css';
 
-import ChatBot from './ChatBot';
+const ChatBot = React.lazy(() => import('./ChatBot'));
 
 export default function Hero() {
     const containerRef = useRef(null);
     const [isChatOpen, setIsChatOpen] = useState(false);
+    const typewriterText = useTypewriter(['Developer Geek', 'Full-Stack Wizard', 'AI Enthusiast', 'MERN Expert']);
 
     // Mouse Spotlight Effect
     useEffect(() => {
@@ -44,7 +46,7 @@ export default function Hero() {
                 <div className="container hero-content">
                     <AnimatePresence mode="wait">
                         {!isChatOpen ? (
-                            <motion.div
+                            <m.div
                                 key="hero-main"
                                 initial={{ opacity: 1 }}
                                 animate={{ opacity: 1 }}
@@ -54,27 +56,20 @@ export default function Hero() {
                             >
                                 {/* Typewriter Effect */}
                                 <div className="typewriter-container">
-                                    <Typewriter
-                                        options={{
-                                            strings: ['Developer Geek', 'Full-Stack Wizard', 'AI Enthusiast', 'MERN Expert'],
-                                            autoStart: true,
-                                            loop: true,
-                                            wrapperClassName: "typewriter-text",
-                                            cursorClassName: "typewriter-cursor"
-                                        }}
-                                    />
+                                    <span className="typewriter-text">{typewriterText}</span>
+                                    <span className="typewriter-cursor">|</span>
                                 </div>
 
-                                <motion.h1
+                                <m.h1
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     className="aesthetic-title"
                                 >
                                     <span className="outline-text">SHAILESH</span>
                                     <span className="filled-text">YADAV</span>
-                                </motion.h1>
+                                </m.h1>
 
-                                <motion.div
+                                <m.div
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.8, delay: 0.4 }}
@@ -86,17 +81,17 @@ export default function Hero() {
                                         rel="noreferrer" 
                                         className="hero-btn primary"
                                     >
-                                        <FileText size={18} style={{ marginRight: '8px', display: 'inline', verticalAlign: 'middle' }} />
-                                        Resume
+                                        <FileText size={18} style={{ marginRight: '10px', display: 'inline', verticalAlign: 'middle' }} />
+                                        RESUME
                                     </a>
                                     <button onClick={scrollToProjects} className="hero-btn">
-                                        <Layers size={18} style={{ marginRight: '8px', display: 'inline', verticalAlign: 'middle' }} />
-                                        Projects
+                                        <Layers size={18} style={{ marginRight: '10px', display: 'inline', verticalAlign: 'middle' }} />
+                                        PROJECTS
                                     </button>
-                                </motion.div>
-                            </motion.div>
+                                </m.div>
+                            </m.div>
                         ) : (
-                            <motion.div
+                            <m.div
                                 key="chat-active-session"
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
@@ -104,13 +99,13 @@ export default function Hero() {
                                 className="chat-integration-area"
                             >
                                 <ChatBot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} isInline={true} />
-                            </motion.div>
+                            </m.div>
                         )}
                     </AnimatePresence>
 
                     {!isChatOpen && (
                         <div className="chat-trigger-section">
-                            <motion.div
+                            <m.div
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 className="search-bar-aesthetic"
@@ -118,7 +113,7 @@ export default function Hero() {
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                             >
-                                <Sparkles size={16} className="text-blue-400" />
+                                <Sparkles size={16} className="search-icon-sparkle" />
                                 <input
                                     placeholder="Ask AI anything about Shailesh..."
                                     className="search-input-dummy"
@@ -129,13 +124,13 @@ export default function Hero() {
                                     }}
                                 />
                                 <div className="search-key-hint">ENTER</div>
-                            </motion.div>
+                            </m.div>
                         </div>
                     )}
 
                     {/* Contact Button */}
                     {!isChatOpen && (
-                        <motion.div
+                        <m.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.8 }}
@@ -150,7 +145,7 @@ export default function Hero() {
                                     <ArrowDown size={14} />
                                 </div>
                             </button>
-                        </motion.div>
+                        </m.div>
                     )}
                 </div>
 
